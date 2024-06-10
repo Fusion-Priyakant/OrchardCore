@@ -14,6 +14,7 @@ on:
         default: 'check'
         type: choice
         options:
+          - check
           - deploy
           - rollback
 
