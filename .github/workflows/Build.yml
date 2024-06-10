@@ -31,5 +31,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Build The Project
         run: |
+          echo pwd
           cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
           dotnet build --framework net8.0
