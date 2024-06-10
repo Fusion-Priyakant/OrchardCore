@@ -1,0 +1,21 @@
+{
+  "runtimeTarget": {
+    "name": "Instrument"
+  },
+  "targets": {
+    "Instrument": {
+      "Instrument/0.0.0.0": {
+        "runtime": {
+          "Instrument.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Instrument/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
