@@ -34,7 +34,7 @@ jobs:
       - name: Instrument The Project
         run: |
           cd D:\Applications\OrchardCore\
-          .\Project.ps1 project
+          .\Project.ps1 instrument
 
       - name: Decompile The Project
         run: |
