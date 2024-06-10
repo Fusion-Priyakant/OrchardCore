@@ -31,7 +31,22 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Executing ${{ github.event.inputs.operation }}
         run: |
-          cd D:\Applications\OrchardCore\
+          cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
           #.\Run.ps1 ${{ github.event.inputs.operation }}
-          $env:RUNNER_TRACKING_ID = "iAppTest1"
-          Start-Process -FilePath "powershell" -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File Run.ps1 ${{ github.event.inputs.operation }}" -NoNewWindow
+         
+          if (${{ github.event.inputs.operation }} -ceq "original")
+          {
+              echo "Running Original"
+              echo "----------------"
+              #dotnet run --framework net8.0
+              $env:RUNNER_TRACKING_ID = "iAppTest1"
+              Start-Process dotnet -ArgumentList "run", "--framework", "net8.0"
+          }
+          elseif (${{ github.event.inputs.operation }} -ceq "instrumented")
+          {
+              echo "Running Instrumented"
+              echo "--------------------"
+              #dotnet run --no-build --framework net8.0 --additional-deps Instrumented.deps.json
+              $env:RUNNER_TRACKING_ID = "iAppTest2"
+              Start-Process dotnet -ArgumentList "run", "--no-build", "--framework", "net8.0", "--additional-deps", "Instrumented.deps.json"
+          }
