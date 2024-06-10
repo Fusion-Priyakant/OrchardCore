@@ -24,8 +24,8 @@ jobs:
       - name: Clone Latest Orchardcore
         run: |
           cd D:\Applications
-          if (Test-Path -Path "D:\Application\OrchardCore") {
-            Remove-Item -Path "D:\Application\OrchardCore" -Recurse -Force
+          if (Test-Path -Path "D:\Applications\OrchardCore") {
+            Remove-Item -Path "D:\Applications\OrchardCore" -Recurse -Force
           }
           git clone https://github.com/OrchardCMS/OrchardCore.git
           cd .\OrchardCore\
