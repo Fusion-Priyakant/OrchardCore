@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Instrument OrchardCor
+name: Instrument OrchardCore
 
 # Controls when the workflow will run
 on:
@@ -33,10 +33,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Instrument The Project
         run: |
-          #cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
+          cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
           .\Project.ps1 project
 
       - name: Decompile The Project
         run: |
-          #cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
+          cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
           .\Project.ps1 decompile
