@@ -32,4 +32,5 @@ jobs:
       - name: Executing ${{ github.event.inputs.operation }}
         run: |
           cd D:\Applications\OrchardCore\
-          .\Run.ps1 ${{ github.event.inputs.operation }}
+          #.\Run.ps1 ${{ github.event.inputs.operation }}
+          Start-Process -FilePath "powershell" -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File Run.ps1 ${{ github.event.inputs.operation }}" -NoNewWindow
