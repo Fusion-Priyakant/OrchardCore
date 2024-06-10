@@ -34,7 +34,7 @@ jobs:
           cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
           #.\Run.ps1 ${{ github.event.inputs.operation }}
          
-          if (${{ github.event.inputs.operation }} -ceq "original")
+          if ("${{ github.event.inputs.operation }}" -ceq "original")
           {
               echo "Running Original"
               echo "----------------"
@@ -42,7 +42,7 @@ jobs:
               $env:RUNNER_TRACKING_ID = "iAppTest1"
               Start-Process dotnet -ArgumentList "run", "--framework", "net8.0"
           }
-          elseif (${{ github.event.inputs.operation }} -ceq "instrumented")
+          elseif ("${{ github.event.inputs.operation }}" -ceq "instrumented")
           {
               echo "Running Instrumented"
               echo "--------------------"
