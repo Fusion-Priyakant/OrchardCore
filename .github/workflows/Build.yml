@@ -25,10 +25,11 @@ jobs:
         run: |
           cd D:\Applications
           git clone https://github.com/OrchardCMS/OrchardCore.git
-          Copy-Item -Path "${{ github.workspace }}\*" -Destination . -Recurse -Force
+          cd .\OrchardCore\
+          Copy-Item -Path "${{ github.workspace }}\Run.ps1" -Destination . -Recurse -Force
           
       # Runs a set of commands using the runners shell
       - name: Build The Project
         run: |
           cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
-          dotnet build --framework net8.0
+          #dotnet build --framework net8.0
