@@ -40,7 +40,7 @@ jobs:
               echo "----------------"
               #dotnet run --framework net8.0
               $env:RUNNER_TRACKING_ID = "iAppTest1"
-              Start-Process dotnet -ArgumentList "run", "--framework", "net8.0"
+              Start-Process dotnet -ArgumentList "run", "--no-build", "--framework", "net8.0"
           }
           elseif ("${{ github.event.inputs.operation }}" -ceq "instrumented")
           {
