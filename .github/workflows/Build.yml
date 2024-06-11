@@ -35,4 +35,4 @@ jobs:
       - name: Build The Project
         run: |
           cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
-          dotnet build --framework net8.0
+          dotnet build
