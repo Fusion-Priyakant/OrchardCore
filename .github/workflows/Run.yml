@@ -31,6 +31,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Executing ${{ github.event.inputs.operation }}
         run: |
-          cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
-          .\Run.ps1 ${{ github.event.inputs.operation }}
+          cd D:\Applications\OrchardCore
+          #.\Run.ps1 ${{ github.event.inputs.operation }}
+          Start-Job -FilePath ".\Run.ps1" -ArgumentList ${{ github.event.inputs.operation }}
       
