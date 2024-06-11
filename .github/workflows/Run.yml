@@ -33,5 +33,6 @@ jobs:
         run: |
           cd D:\Applications\OrchardCore
           #.\Run.ps1 ${{ github.event.inputs.operation }}
+          $env:RUNNER_TRACKING_ID = "iAppTest1"
           Start-Process -FilePath "powershell" -ArgumentList "-File .\Run.ps1 ${{ github.event.inputs.operation }}"
       
