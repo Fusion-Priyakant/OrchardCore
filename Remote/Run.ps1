@@ -8,7 +8,7 @@ if ($task -ceq "original")
 {
     echo "Running Original"
     echo "----------------"
-    dotnet run --framework net8.0
+    dotnet run --no-build --framework net8.0
 }
 elseif ($task -ceq "instrumented")
 {
