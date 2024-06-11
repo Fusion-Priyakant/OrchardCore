@@ -27,7 +27,11 @@ jobs:
           if (Test-Path -Path "D:\Applications\OrchardCore") {
             Remove-Item -Path "D:\Applications\OrchardCore" -Recurse -Force
           }
-          git clone https://github.com/OrchardCMS/OrchardCore.git
+          #git clone https://github.com/OrchardCMS/OrchardCore.git
+          Invoke-WebRequest -Uri https://codeload.github.com/OrchardCMS/OrchardCore/zip/refs/tags/v1.8.3 -OutFile OrchardCore.zip
+          Expand-Archive -Path OrchardCore.zip -DestinationPath . -Force
+          Rename-Item -Path .\OrchardCore-1.8.3 -NewName OrchardCore -Force
+          
           cd .\OrchardCore\
           Copy-Item -Path "${{ github.workspace }}\Remote\*" -Destination . -Recurse -Force
           
@@ -35,4 +39,4 @@ jobs:
       - name: Build The Project
         run: |
           cd D:\Applications\OrchardCore\src\OrchardCore.Cms.Web
-          dotnet build
+          dotnet build --framework net8.0
