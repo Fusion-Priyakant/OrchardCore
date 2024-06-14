@@ -33,8 +33,10 @@ jobs:
           
       - name: Upload  Analysis Result
         uses: xresloader/upload-to-github-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          release: ${{ steps.create_release.outputs.release_id }}
-          files: C:\FusionLiteProjects\OrchardCore\Data\Imports\analysis.zip
+          file: C:\FusionLiteProjects\OrchardCore\Data\Imports\analysis.zip
+          tags: false
+          draft: false
         
