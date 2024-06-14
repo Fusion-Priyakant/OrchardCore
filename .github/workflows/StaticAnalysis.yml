@@ -31,24 +31,12 @@ jobs:
         run: |
           Compress-Archive -Path C:\FusionLiteProjects\OrchardCore\Data\Imports\* -DestinationPath C:\FusionLiteProjects\OrchardCore\Data\Imports\analysis.zip -Force
           
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Upload Release
+        uses: xresloader/upload-to-github-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: false
-          release_name: false
+          file: C:\FusionLiteProjects\OrchardCore\Data\Imports\analysis.zip
+          tags: false
           draft: false
-          prerelease: false
-          
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: C:\FusionLiteProjects\OrchardCore\Data\Imports\analysis.zip
-          asset_name: analysis.zip
-          asset_content_type: application/zip
         
