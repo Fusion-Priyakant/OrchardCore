@@ -27,11 +27,14 @@ jobs:
           Copy-Item -Path "${{ github.workspace }}\Local\*" -Destination . -Recurse -Force
           
       # Runs a set of commands using the runners shell
-      - name: Upload Analysis Result
+      - name: Zip Analysis Result
         run: |
           Compress-Archive -Path C:\FusionLiteProjects\OrchardCore\Data\Imports\* -DestinationPath C:\FusionLiteProjects\OrchardCore\Data\Imports\analysis.zip
-          gh release upload ${{github.event.release.tag_name}}
-        env:
-          GITHUB_TOKEN: ${{ github.TOKEN }}
-        shell: powershell
+          
+      - name: Upload  Analysis Result
+        uses: xresloader/upload-to-github-release@v1
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          release: ${{ steps.create_release.outputs.release_id }}
+          files: C:\FusionLiteProjects\OrchardCore\Data\Imports\analysis.zip
         
