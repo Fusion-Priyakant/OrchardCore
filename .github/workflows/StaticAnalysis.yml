@@ -33,5 +33,5 @@ jobs:
           gh release upload ${{github.event.release.tag_name}}
         env:
           GITHUB_TOKEN: ${{ github.TOKEN }}
-        shell: bash
+        shell: powershell
         
